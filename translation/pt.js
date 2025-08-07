@@ -1,5 +1,5 @@
 var ptData = {
-    "title": "Auxílio de Interpretação",
+    "title": "Interpretation Aid",
     "image": "./resources/ClinicalAlgorithmPt.jpg",
     "form title": "Dados do paciente",
     "date": "Data",

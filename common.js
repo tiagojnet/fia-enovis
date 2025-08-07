@@ -4,7 +4,7 @@ const mapLang = {
   pt: ptData,
 };
 
-var langData = engData;
+var langData = ptData;
 
 function gotoPage(pageName) {
   var splitUrl = window.location.href.split("/");
