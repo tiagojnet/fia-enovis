@@ -1,60 +1,121 @@
 <!doctype html>
 <html>
-	<head>
-		<title>FeNO Interpretation Aid</title>
-		<meta charset="utf-8"/>
-		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link rel="stylesheet" href="styles.css">
+    <head>
+        <title>FeNO Interpretation Aid</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="styles.css" />
         <script src="translation/eng.js"></script>
         <script src="translation/swe.js"></script>
+        <script src="translation/pt.js"></script>
         <script src="resources/lookupjson.js"></script>
         <script src="result.js"></script>
         <link rel="stylesheet" media="print" href="print.css" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-	</head>
-	<body class="w-md-body mx-auto" style="display: none; ">
-		<div class="m-md-5 my-5 m-4">
-            <div class="d-sm-flex text-sm-left text-center ">
-			    <button onclick="gotoPage('index.html')" class="title"><h1 id="feno"class="d-sm-inline d-block pe-sm-2">F<span>e</span>NO</h1><h1 class="d-inline translate" data-translate="title">Interpretation Aid</h1></button>
-                <button onclick="gotoPage('about.html')" class="bg-dark-blue text-white form-btn mt-3 mt-sm-auto translate hide-print" data-translate="about">About</button>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+            crossorigin="anonymous"
+        />
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"
+        ></script>
+    </head>
+    <body class="w-md-body mx-auto" style="display: none">
+        <div class="m-md-5 my-5 m-4">
+            <div class="d-sm-flex text-sm-left text-center">
+                <button onclick="gotoPage('index.html')" class="title">
+                    <h1 id="feno" class="d-sm-inline d-block pe-sm-2">
+                        F<span>e</span>NO
+                    </h1>
+                    <h1 class="d-inline translate" data-translate="title">
+                        Interpretation Aid
+                    </h1>
+                </button>
+                <button
+                    onclick="gotoPage('about.html')"
+                    class="bg-dark-blue text-white form-btn mt-3 mt-sm-auto translate hide-print"
+                    data-translate="about"
+                >
+                    About
+                </button>
                 <div class="mt-3 my-sm-auto d-block hide-print">
-                    <select id="language" class="w-100 hide-print" onchange="changeDropdown(this)">
+                    <select
+                        id="language"
+                        class="w-100 hide-print"
+                        onchange="changeDropdown(this)"
+                    >
                         <option value="eng">English</option>
                         <option value="swe">Swedish</option>
+                        <option value="pt">Português</option>
                     </select>
                 </div>
             </div>
             <div id="result">
                 <div class="row bg-dark-blue mt-4">
-                    <a class="text-decoration-none d-flex header collapsed" data-bs-toggle="collapse" href="#collapsePatient" role="button" aria-expanded="false" aria-controls="collapsePatient">
-                        <div class="text-white my-auto me-2 icon hide-print">&#62;</div><h6 class="text-white my-2 ms-1 translate" data-translate="form title">Patient data</h6>
+                    <a
+                        class="text-decoration-none d-flex header collapsed"
+                        data-bs-toggle="collapse"
+                        href="#collapsePatient"
+                        role="button"
+                        aria-expanded="false"
+                        aria-controls="collapsePatient"
+                    >
+                        <div class="text-white my-auto me-2 icon hide-print">
+                            &#62;
+                        </div>
+                        <h6
+                            class="text-white my-2 ms-1 translate"
+                            data-translate="form title"
+                        >
+                            Patient data
+                        </h6>
                     </a>
                 </div>
                 <div class="collapse" id="collapsePatient">
                     <div>
-                        <div class="row mt-2" id="date-row" style="display: none; ">
+                        <div
+                            class="row mt-2"
+                            id="date-row"
+                            style="display: none"
+                        >
                             <div class="d-flex ms-4 no-print-margin">
-                                <p class="label translate" data-translate="date">Date:</p>
+                                <p
+                                    class="label translate"
+                                    data-translate="date"
+                                >
+                                    Date:
+                                </p>
                                 <p id="outputDate" class="units"></p>
                             </div>
                         </div>
                         <div class="row mt-4 no-print-margin">
                             <div class="d-flex ms-4 no-print-margin">
-                                <p class="label translate" data-translate="age">Age:</p>
+                                <p class="label translate" data-translate="age">
+                                    Age:
+                                </p>
                                 <p id="outputAge" class="units"></p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="d-flex ms-4 no-print-margin">
-                                <p class="label translate" data-translate="height">Height:</p>
+                                <p
+                                    class="label translate"
+                                    data-translate="height"
+                                >
+                                    Height:
+                                </p>
                                 <p id="outputHeight" class="units"></p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="d-flex ms-4 no-print-margin">
-                                <p class="label translate" data-translate="sex">Sex</p>
+                                <p class="label translate" data-translate="sex">
+                                    Sex
+                                </p>
                                 <p id="outputSex" class="units"></p>
                             </div>
                         </div>
@@ -67,130 +128,320 @@
                     </div>
                 </div>
                 <div class="row bg-dark-blue mt-4">
-                    <a class="text-decoration-none d-flex header" data-bs-toggle="collapse" href="#collapseResults" role="button" aria-expanded="true" aria-controls="collapseResults">
-                        <div class="text-white my-auto me-2 icon hide-print">&#62;</div>
-                        <h6 class="text-white my-2 translate" data-translate="values interpretation 1">Values Interpretation</h6>
+                    <a
+                        class="text-decoration-none d-flex header"
+                        data-bs-toggle="collapse"
+                        href="#collapseResults"
+                        role="button"
+                        aria-expanded="true"
+                        aria-controls="collapseResults"
+                    >
+                        <div class="text-white my-auto me-2 icon hide-print">
+                            &#62;
+                        </div>
+                        <h6
+                            class="text-white my-2 translate"
+                            data-translate="values interpretation 1"
+                        >
+                            Values Interpretation
+                        </h6>
                     </a>
                 </div>
                 <div class="collapse show" id="collapseResults">
                     <div class="row mt-4 no-print-margin">
-                        <div class="col-12 col-sm my-sm-4 order-sm-2" id="results-div">
+                        <div
+                            class="col-12 col-sm my-sm-4 order-sm-2"
+                            id="results-div"
+                        >
                             <div class="d-flex">
-                                <p class="units ms-auto me-2 translate bold" data-translate="measured">Measured FeNO:</p><p class="units me-auto" id="measuredFeno"></p>
+                                <p
+                                    class="units ms-auto me-2 translate bold"
+                                    data-translate="measured"
+                                >
+                                    Measured FeNO:
+                                </p>
+                                <p class="units me-auto" id="measuredFeno"></p>
                             </div>
                             <div class="d-flex py-3">
-                                <p class="units ms-auto me-2 translate bold" data-translate="predicted">Predicted FeNO:</p><p class="units me-auto" id="predictedFeno"></p>
+                                <p
+                                    class="units ms-auto me-2 translate bold"
+                                    data-translate="predicted"
+                                >
+                                    Predicted FeNO:
+                                </p>
+                                <p class="units me-auto" id="predictedFeno"></p>
                             </div>
                             <div class="d-flex mb-3">
-                                <p class="units ms-auto me-2 translate bold" data-translate="percent predicted">Percent Predicted FeNO:</p><p class="units me-auto" id="percFeno"></p>
+                                <p
+                                    class="units ms-auto me-2 translate bold"
+                                    data-translate="percent predicted"
+                                >
+                                    Percent Predicted FeNO:
+                                </p>
+                                <p class="units me-auto" id="percFeno"></p>
                             </div>
                         </div>
                         <div class="col-12 col-sm my-sm-0 order-sm-1 me-5">
                             <div id="gradient">
-                                <img src="./resources/Gradient.png">
+                                <img src="./resources/Gradient.png" />
                                 <div id="line"></div>
                                 <div id="number" class="text-color">
                                     <div id="floatingPerc"></div>
-                                    <div id="main-msg" class="text translate">A high value</div>
+                                    <div id="main-msg" class="text translate">
+                                        A high value
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row bg-dark-blue mt-4">
-                    <a class="text-decoration-none d-flex header" data-bs-toggle="collapse" href="#collapseFaq1" role="button" aria-expanded="true" aria-controls="collapseFaq1">
-                        <div class="text-white my-auto me-2 icon hide-print">&#62;</div><h6 class="text-white my-2 ms-1 translate" data-translate="faq1">What does it mean?</h6>
+                    <a
+                        class="text-decoration-none d-flex header"
+                        data-bs-toggle="collapse"
+                        href="#collapseFaq1"
+                        role="button"
+                        aria-expanded="true"
+                        aria-controls="collapseFaq1"
+                    >
+                        <div class="text-white my-auto me-2 icon hide-print">
+                            &#62;
+                        </div>
+                        <h6
+                            class="text-white my-2 ms-1 translate"
+                            data-translate="faq1"
+                        >
+                            What does it mean?
+                        </h6>
                     </a>
                 </div>
                 <div class="row collapse show" id="collapseFaq1">
                     <div class="row mt-4 no-print-margin">
                         <div class="col d-flex ps-0">
-                            <p id="no-left-margin-print" class="units mx-md-4 translate answer-green" style="display: none; " data-translate="answer1 green"> not empty</p>
-                            <p id="no-left-margin-print" class="units mx-md-4 translate answer-yellow" style="display: none; " data-translate="answer1 yellow"> not empty</p>
-                            <p id="no-left-margin-print" class="units mx-md-4 translate answer-orange" style="display: none; " data-translate="answer1 orange"> not empty</p>
-                            <p id="no-left-margin-print" class="units mx-md-4 translate answer-red" style="display: none; " data-translate="answer1 red"> not empty</p>
-                            <p id="no-left-margin-print" class="units mx-md-4 translate answer-dark-red" style="display: none; " data-translate="answer1 dark red"> not empty</p>
+                            <p
+                                id="no-left-margin-print"
+                                class="units mx-md-4 translate answer-green"
+                                style="display: none"
+                                data-translate="answer1 green"
+                            >
+                                not empty
+                            </p>
+                            <p
+                                id="no-left-margin-print"
+                                class="units mx-md-4 translate answer-yellow"
+                                style="display: none"
+                                data-translate="answer1 yellow"
+                            >
+                                not empty
+                            </p>
+                            <p
+                                id="no-left-margin-print"
+                                class="units mx-md-4 translate answer-orange"
+                                style="display: none"
+                                data-translate="answer1 orange"
+                            >
+                                not empty
+                            </p>
+                            <p
+                                id="no-left-margin-print"
+                                class="units mx-md-4 translate answer-red"
+                                style="display: none"
+                                data-translate="answer1 red"
+                            >
+                                not empty
+                            </p>
+                            <p
+                                id="no-left-margin-print"
+                                class="units mx-md-4 translate answer-dark-red"
+                                style="display: none"
+                                data-translate="answer1 dark red"
+                            >
+                                not empty
+                            </p>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="row bg-dark-blue mt-4 pagebreak">
-                    <a class="text-decoration-none d-flex header collapsed" data-bs-toggle="collapse" href="#collapseFaq2" role="button" aria-expanded="false" aria-controls="collapseFaq2">
-                        <div class="text-white my-auto me-2 icon hide-print">&#62;</div><h6 class="text-white my-2 ms-1 translate" data-translate="faq2">The title</h6>
+                    <a
+                        class="text-decoration-none d-flex header collapsed"
+                        data-bs-toggle="collapse"
+                        href="#collapseFaq2"
+                        role="button"
+                        aria-expanded="false"
+                        aria-controls="collapseFaq2"
+                    >
+                        <div class="text-white my-auto me-2 icon hide-print">
+                            &#62;
+                        </div>
+                        <h6
+                            class="text-white my-2 ms-1 translate"
+                            data-translate="faq2"
+                        >
+                            The title
+                        </h6>
                     </a>
                 </div>
                 <div class="row collapse" id="collapseFaq2">
                     <div class="row mt-4 no-print-margin">
                         <div class="col ps-0">
-                            <p class="units mx-md-4 translate" id="no-left-margin-print" data-translate="answer2">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <p
+                                class="units mx-md-4 translate"
+                                id="no-left-margin-print"
+                                data-translate="answer2"
+                            >
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit.
                             </p>
                             <div class="ps-3 mx-md-4 py-3">
                                 <div class="d-flex py-1">
                                     <p class="units me-1">1.</p>
-                                    <p class="units ms-1 translate" data-translate="answer2 point1">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                    <p
+                                        class="units ms-1 translate"
+                                        data-translate="answer2 point1"
+                                    >
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit.
+                                    </p>
                                 </div>
                                 <div class="d-flex py-1">
                                     <p class="units me-1">2.</p>
-                                    <p class="units ms-1 translate" data-translate="answer2 point2">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                    <p
+                                        class="units ms-1 translate"
+                                        data-translate="answer2 point2"
+                                    >
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit.
+                                    </p>
                                 </div>
                                 <div class="d-flex py-1">
                                     <p class="units me-1">3.</p>
-                                    <p class="units ms-1 translate" data-translate="answer2 point3">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                    <p
+                                        class="units ms-1 translate"
+                                        data-translate="answer2 point3"
+                                    >
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit.
+                                    </p>
                                 </div>
                                 <div class="d-flex py-1">
                                     <p class="units me-1">4.</p>
-                                    <p class="units ms-1 translate" data-translate="answer2 point4">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                    <p
+                                        class="units ms-1 translate"
+                                        data-translate="answer2 point4"
+                                    >
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit.
+                                    </p>
                                 </div>
                                 <div class="d-flex justify-content-center">
-                                    <img id="faq2-img" class="faq2-img" src="./resources/ClinicalAlgorithm.png" />
+                                    <img
+                                        id="faq2-img"
+                                        class="faq2-img"
+                                        src="./resources/ClinicalAlgorithm.png"
+                                    />
                                 </div>
                                 <div class="d-flex py-1">
                                     <p class="units me-1">5.</p>
-                                    <p class="units ms-1 translate" data-translate="answer2 point5">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                    <p
+                                        class="units ms-1 translate"
+                                        data-translate="answer2 point5"
+                                    >
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit.
+                                    </p>
                                 </div>
                             </div>
                             <div class="d-flex">
-                                <p class="units mx-md-4 translate" data-translate="answer2 last">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                <p
+                                    class="units mx-md-4 translate"
+                                    data-translate="answer2 last"
+                                >
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit.
                                 </p>
-
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row bg-dark-blue mt-4">
-                    <a class="text-decoration-none d-flex header collapsed" data-bs-toggle="collapse" href="#collapseFaq3" role="button" aria-expanded="false" aria-controls="collapseFaq3">
-                        <div class="text-white my-auto me-2 icon hide-print">&#62;</div><h6 class="text-white my-2 ms-1 translate" data-translate="faq3">The title</h6>
+                    <a
+                        class="text-decoration-none d-flex header collapsed"
+                        data-bs-toggle="collapse"
+                        href="#collapseFaq3"
+                        role="button"
+                        aria-expanded="false"
+                        aria-controls="collapseFaq3"
+                    >
+                        <div class="text-white my-auto me-2 icon hide-print">
+                            &#62;
+                        </div>
+                        <h6
+                            class="text-white my-2 ms-1 translate"
+                            data-translate="faq3"
+                        >
+                            The title
+                        </h6>
                     </a>
                 </div>
                 <div class="row collapse" id="collapseFaq3">
                     <div class="row mt-4 no-print-margin">
                         <div class="col ps-0">
-                            <div class="d-flex mx-md-4 ">
+                            <div class="d-flex mx-md-4">
                                 <div class="d-inline custom-pl justify">
-                                    <p class="units translate d-inline pl-0" data-translate="answer3 point1">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        
+                                    <p
+                                        class="units translate d-inline pl-0"
+                                        data-translate="answer3 point1"
+                                    >
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit.
                                     </p>
                                     <p class="units pl-0">
-                                        <a onclick="clickListener()" href="#amaral" class="no-link">Amaral et al. [1]</a>
+                                        <a
+                                            onclick="clickListener()"
+                                            href="#amaral"
+                                            class="no-link"
+                                            >Amaral et al. [1]</a
+                                        >
                                     </p>
                                     <p class="units ps-0">.</p>
                                 </div>
                             </div>
-                            <p class="units mx-md-4 translate" data-translate="answer3 point2">
-                                In this study, predicted FeNO was calculated using the patient’s sex, height and age.
+                            <p
+                                class="units mx-md-4 translate"
+                                data-translate="answer3 point2"
+                            >
+                                In this study, predicted FeNO was calculated
+                                using the patient’s sex, height and age.
                             </p>
-                            <p class="units mx-md-4 translate" data-translate="answer3 point3">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <p
+                                class="units mx-md-4 translate"
+                                data-translate="answer3 point3"
+                            >
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit.
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="row bg-dark-blue mt-4">
-                    <a class="text-decoration-none d-flex header collapsed" data-bs-toggle="collapse" href="#collapseFaq4" role="button" aria-expanded="false" aria-controls="collapseFaq4">
-                        <div class="text-white my-auto me-2 icon hide-print">&#62;</div><h6 class="text-white my-2 ms-1 translate" data-translate="faq4">The title</h6>
+                    <a
+                        class="text-decoration-none d-flex header collapsed"
+                        data-bs-toggle="collapse"
+                        href="#collapseFaq4"
+                        role="button"
+                        aria-expanded="false"
+                        aria-controls="collapseFaq4"
+                    >
+                        <div class="text-white my-auto me-2 icon hide-print">
+                            &#62;
+                        </div>
+                        <h6
+                            class="text-white my-2 ms-1 translate"
+                            data-translate="faq4"
+                        >
+                            The title
+                        </h6>
                     </a>
                 </div>
                 <div class="row collapse" id="collapseFaq4">
@@ -198,18 +449,41 @@
                         <div class="col ps-0">
                             <div class="d-flex mx-md-4">
                                 <div class="d-inline custom-pl justify">
-                                    <p class="units translate d-inline pl-0" data-translate="answer4 point1">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        
+                                    <p
+                                        class="units translate d-inline pl-0"
+                                        data-translate="answer4 point1"
+                                    >
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit.
                                     </p>
                                     <p class="units pl-0">
-                                        [<a onclick="clickListener()" href="#bjermer" class="no-link">2</a>, <a onclick="clickListener()" href="#price" class="no-link">3</a>].
+                                        [<a
+                                            onclick="clickListener()"
+                                            href="#bjermer"
+                                            class="no-link"
+                                            >2</a
+                                        >,
+                                        <a
+                                            onclick="clickListener()"
+                                            href="#price"
+                                            class="no-link"
+                                            >3</a
+                                        >].
                                     </p>
-                                    <p class="units translate d-inline pl-0" data-translate="answer4 point2">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    <p
+                                        class="units translate d-inline pl-0"
+                                        data-translate="answer4 point2"
+                                    >
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit.
                                     </p>
                                     <p class="units pl-0">
-                                        <a onclick="clickListener()" href="#sverrild" class="no-link">[4]</a>.
+                                        <a
+                                            onclick="clickListener()"
+                                            href="#sverrild"
+                                            class="no-link"
+                                            >[4]</a
+                                        >.
                                     </p>
                                 </div>
                             </div>
@@ -217,84 +491,254 @@
                     </div>
                 </div>
                 <div class="row bg-dark-blue mt-4">
-                    <a class="text-decoration-none d-flex header collapsed" data-bs-toggle="collapse" href="#collapseFaq5" role="button" aria-expanded="false" aria-controls="collapseFaq5">
-                        <div class="text-white my-auto me-2 icon hide-print">&#62;</div><h6 class="text-white my-2 ms-1 translate" data-translate="faq5">The title</h6>
+                    <a
+                        class="text-decoration-none d-flex header collapsed"
+                        data-bs-toggle="collapse"
+                        href="#collapseFaq5"
+                        role="button"
+                        aria-expanded="false"
+                        aria-controls="collapseFaq5"
+                    >
+                        <div class="text-white my-auto me-2 icon hide-print">
+                            &#62;
+                        </div>
+                        <h6
+                            class="text-white my-2 ms-1 translate"
+                            data-translate="faq5"
+                        >
+                            The title
+                        </h6>
                     </a>
                 </div>
                 <div class="row collapse" id="collapseFaq5">
                     <div class="row mt-4 no-print-margin">
                         <div class="col ps-0">
-                            <p class="units mx-md-4  translate" data-translate="answer5">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <p
+                                class="units mx-md-4 translate"
+                                data-translate="answer5"
+                            >
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit.
                             </p>
                         </div>
                     </div>
                 </div>
                 <div class="row bg-dark-blue mt-4">
-                    <a class="text-decoration-none d-flex header collapsed" data-bs-toggle="collapse" href="#collapseFaq6" role="button" aria-expanded="false" aria-controls="collapseFaq6">
-                        <div class="text-white my-auto me-2 icon hide-print">&#62;</div><h6 class="text-white my-2 ms-1 translate" data-translate="faq6">The title</h6>
+                    <a
+                        class="text-decoration-none d-flex header collapsed"
+                        data-bs-toggle="collapse"
+                        href="#collapseFaq6"
+                        role="button"
+                        aria-expanded="false"
+                        aria-controls="collapseFaq6"
+                    >
+                        <div class="text-white my-auto me-2 icon hide-print">
+                            &#62;
+                        </div>
+                        <h6
+                            class="text-white my-2 ms-1 translate"
+                            data-translate="faq6"
+                        >
+                            The title
+                        </h6>
                     </a>
                 </div>
                 <div class="row collapse" id="collapseFaq6">
                     <div class="row mt-4 no-print-margin">
                         <div class="col ps-0">
-                                <div class=" custom-pl justify">
-                                    <div class="mx-md-4">
-                                        <p class="units translate d-inline ps-0" data-translate="answer6">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                        </p>
-                                        <p class="units pl-0 d-inline">
-                                            <a class="no-link" href="bjermer" onclick="clickListener()">[2]</a>
-                                        </p>
-                                        <p class="units d-inline ps-0">.</p>
-                                    </div>
-                                    <div class="mx-md-4">
-                                        <p class="units translate d-inline ps-0" data-translate="answer6 table intro">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                        </p>
-                                        <table class="table table-bordered mt-4">
-                                            <tbody>
-                                                <tr>
-                                                  <td scope="col" class="translate bold blue" data-translate="col1row1">Factor</td>
-                                                  <td scope="col" class="translate bold blue" data-translate="col2row1">Effect size</td>
-                                                  <td scope="col" class="translate bold blue" data-translate="col3row1">Measure</td>
-                                                </tr>
-                                              <tr>
-                                                <td scope="col" class="translate blue" data-translate="col1row2">Factor</td>
-                                                <td scope="col" class="translate blue" data-translate="col2row2">Effect size</td>
-                                                <td scope="col" class="translate blue" data-translate="col3row2">Measure</td>
-                                              </tr>
-                                              <tr>
-                                                <td scope="col" class="translate blue" data-translate="col1row3">Factor</td>
-                                                <td scope="col" class="translate blue" data-translate="col2row3">Effect size</td>
-                                                <td scope="col" class="translate blue" data-translate="col3row3">Measure</td>
-                                              </tr>
-                                              <tr>
-                                                <td scope="col" class="translate blue" data-translate="col1row4">Factor</td>
-                                                <td scope="col" class="translate blue" data-translate="col2row4">Effect size</td>
-                                                <td scope="col" class="translate blue" data-translate="col3row4">Measure</td>
-                                              </tr>
-                                              <tr>
-                                                <td scope="col" class="translate blue" data-translate="col1row5">Factor</td>
-                                                <td scope="col" class="translate blue" data-translate="col2row5">Effect size</td>
-                                                <td scope="col" class="translate blue" data-translate="col3row5">Measure</td>
-                                              </tr>
-                                              <tr>
-                                                <td scope="col" class="translate blue" data-translate="col1row6">Factor</td>
-                                                <td scope="col" class="translate blue" data-translate="col2row6">Effect size</td>
-                                                <td scope="col" class="translate blue" data-translate="col3row6">Measure</td>
-                                              </tr>
-                                            </tbody>
-                                          </table>
-                                    </div>
+                            <div class="custom-pl justify">
+                                <div class="mx-md-4">
+                                    <p
+                                        class="units translate d-inline ps-0"
+                                        data-translate="answer6"
+                                    >
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit.
+                                    </p>
+                                    <p class="units pl-0 d-inline">
+                                        <a
+                                            class="no-link"
+                                            href="bjermer"
+                                            onclick="clickListener()"
+                                            >[2]</a
+                                        >
+                                    </p>
+                                    <p class="units d-inline ps-0">.</p>
+                                </div>
+                                <div class="mx-md-4">
+                                    <p
+                                        class="units translate d-inline ps-0"
+                                        data-translate="answer6 table intro"
+                                    >
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit.
+                                    </p>
+                                    <table class="table table-bordered mt-4">
+                                        <tbody>
+                                            <tr>
+                                                <td
+                                                    scope="col"
+                                                    class="translate bold blue"
+                                                    data-translate="col1row1"
+                                                >
+                                                    Factor
+                                                </td>
+                                                <td
+                                                    scope="col"
+                                                    class="translate bold blue"
+                                                    data-translate="col2row1"
+                                                >
+                                                    Effect size
+                                                </td>
+                                                <td
+                                                    scope="col"
+                                                    class="translate bold blue"
+                                                    data-translate="col3row1"
+                                                >
+                                                    Measure
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    scope="col"
+                                                    class="translate blue"
+                                                    data-translate="col1row2"
+                                                >
+                                                    Factor
+                                                </td>
+                                                <td
+                                                    scope="col"
+                                                    class="translate blue"
+                                                    data-translate="col2row2"
+                                                >
+                                                    Effect size
+                                                </td>
+                                                <td
+                                                    scope="col"
+                                                    class="translate blue"
+                                                    data-translate="col3row2"
+                                                >
+                                                    Measure
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    scope="col"
+                                                    class="translate blue"
+                                                    data-translate="col1row3"
+                                                >
+                                                    Factor
+                                                </td>
+                                                <td
+                                                    scope="col"
+                                                    class="translate blue"
+                                                    data-translate="col2row3"
+                                                >
+                                                    Effect size
+                                                </td>
+                                                <td
+                                                    scope="col"
+                                                    class="translate blue"
+                                                    data-translate="col3row3"
+                                                >
+                                                    Measure
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    scope="col"
+                                                    class="translate blue"
+                                                    data-translate="col1row4"
+                                                >
+                                                    Factor
+                                                </td>
+                                                <td
+                                                    scope="col"
+                                                    class="translate blue"
+                                                    data-translate="col2row4"
+                                                >
+                                                    Effect size
+                                                </td>
+                                                <td
+                                                    scope="col"
+                                                    class="translate blue"
+                                                    data-translate="col3row4"
+                                                >
+                                                    Measure
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    scope="col"
+                                                    class="translate blue"
+                                                    data-translate="col1row5"
+                                                >
+                                                    Factor
+                                                </td>
+                                                <td
+                                                    scope="col"
+                                                    class="translate blue"
+                                                    data-translate="col2row5"
+                                                >
+                                                    Effect size
+                                                </td>
+                                                <td
+                                                    scope="col"
+                                                    class="translate blue"
+                                                    data-translate="col3row5"
+                                                >
+                                                    Measure
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                    scope="col"
+                                                    class="translate blue"
+                                                    data-translate="col1row6"
+                                                >
+                                                    Factor
+                                                </td>
+                                                <td
+                                                    scope="col"
+                                                    class="translate blue"
+                                                    data-translate="col2row6"
+                                                >
+                                                    Effect size
+                                                </td>
+                                                <td
+                                                    scope="col"
+                                                    class="translate blue"
+                                                    data-translate="col3row6"
+                                                >
+                                                    Measure
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-
+                        </div>
                     </div>
                 </div>
                 <div class="row bg-dark-blue mt-4">
-                    <a class="text-decoration-none d-flex header collapsed" data-bs-toggle="collapse" href="#collapseFaq7" role="button" aria-expanded="false" aria-controls="collapseFaq7" id="references">
-                        <div class="text-white my-auto me-2 icon hide-print">&#62;</div><h6 class="text-white my-2 ms-1 translate" data-translate="faq7">References</h6>
+                    <a
+                        class="text-decoration-none d-flex header collapsed"
+                        data-bs-toggle="collapse"
+                        href="#collapseFaq7"
+                        role="button"
+                        aria-expanded="false"
+                        aria-controls="collapseFaq7"
+                        id="references"
+                    >
+                        <div class="text-white my-auto me-2 icon hide-print">
+                            &#62;
+                        </div>
+                        <h6
+                            class="text-white my-2 ms-1 translate"
+                            data-translate="faq7"
+                        >
+                            References
+                        </h6>
                     </a>
                 </div>
                 <div class="row collapse" id="collapseFaq7">
@@ -303,25 +747,65 @@
                             <div class="mx-md-4">
                                 <div id="amaral" class="d-flex py-1">
                                     <p class="units me-1">1.</p>
-                                    <p class="units ms-1">Amaral, R., Jacinto, T., Malinovchi, A., Janson, C., Sousa-Pinto, B., Olin, A-C., et al. Development and validation of non-linear reference equations for individualized FeNO cutoffs. (In preparation)</p>
+                                    <p class="units ms-1">
+                                        Amaral, R., Jacinto, T., Malinovchi, A.,
+                                        Janson, C., Sousa-Pinto, B., Olin, A-C.,
+                                        et al. Development and validation of
+                                        non-linear reference equations for
+                                        individualized FeNO cutoffs. (In
+                                        preparation)
+                                    </p>
                                 </div>
                                 <div id="bjermer" class="d-flex py-1">
                                     <p class="units me-1">2.</p>
-                                    <p class="units ms-1">Bjermer, L., Alving, K., Diamant, Z., Magnussen, H., Pavord, I., Piacentini, G., et al. (2014). Current evidence and future research needs for FeNO measurement in respiratory diseases. Respiratory medicine, 108(6), 830–841<a class="ps-2" href="https://doi.org/10.1016/j.rmed.2014.02.005">https://doi.org/10.1016/j.rmed.2014.02.005</a></p>
+                                    <p class="units ms-1">
+                                        Bjermer, L., Alving, K., Diamant, Z.,
+                                        Magnussen, H., Pavord, I., Piacentini,
+                                        G., et al. (2014). Current evidence and
+                                        future research needs for FeNO
+                                        measurement in respiratory diseases.
+                                        Respiratory medicine, 108(6), 830–841<a
+                                            class="ps-2"
+                                            href="https://doi.org/10.1016/j.rmed.2014.02.005"
+                                            >https://doi.org/10.1016/j.rmed.2014.02.005</a
+                                        >
+                                    </p>
                                 </div>
                                 <div id="price" class="d-flex py-1">
                                     <p class="units me-1">3.</p>
-                                    <p class="units ms-1">Price, D. B., Buhl, R., Chan, A., Freeman, D., Gardener, E., Godley, C., et al. (2018). 
-                                        Fractional exhaled nitric oxide as a predictor of response to inhaled corticosteroids in patients with non-specific 
-                                        respiratory symptoms and insignificant bronchodilator reversibility: a randomised controlled trial. The Lancet. Respiratory medicine, 6(1), 29–39. 
-                                        <a class="ps-2" href="https://doi.org/10.1016/S2213-2600(17)30424-1">https://doi.org/10.1016/S2213-2600(17)30424-1</a>
+                                    <p class="units ms-1">
+                                        Price, D. B., Buhl, R., Chan, A.,
+                                        Freeman, D., Gardener, E., Godley, C.,
+                                        et al. (2018). Fractional exhaled nitric
+                                        oxide as a predictor of response to
+                                        inhaled corticosteroids in patients with
+                                        non-specific respiratory symptoms and
+                                        insignificant bronchodilator
+                                        reversibility: a randomised controlled
+                                        trial. The Lancet. Respiratory medicine,
+                                        6(1), 29–39.
+                                        <a
+                                            class="ps-2"
+                                            href="https://doi.org/10.1016/S2213-2600(17)30424-1"
+                                            >https://doi.org/10.1016/S2213-2600(17)30424-1</a
+                                        >
                                     </p>
                                 </div>
                                 <div id="sverrild" class="d-flex py-1">
                                     <p class="units me-1">4.</p>
-                                    <p class="units ms-1">Sverrild, A., Malinovschi, A., Porsbjerg, C., Backer, V., & Alving, K. (2013). Predicting airway hyperreactivity to mannitol using 
-                                        exhaled nitric oxide in an unselected sample of adolescents and young adults. Respiratory medicine, 107(1), 150–152. 
-                                        <a class="ps-2" href="https://doi.org/10.1016/j.rmed.2012.09.004">https://doi.org/10.1016/j.rmed.2012.09.004</a>
+                                    <p class="units ms-1">
+                                        Sverrild, A., Malinovschi, A.,
+                                        Porsbjerg, C., Backer, V., & Alving, K.
+                                        (2013). Predicting airway
+                                        hyperreactivity to mannitol using
+                                        exhaled nitric oxide in an unselected
+                                        sample of adolescents and young adults.
+                                        Respiratory medicine, 107(1), 150–152.
+                                        <a
+                                            class="ps-2"
+                                            href="https://doi.org/10.1016/j.rmed.2012.09.004"
+                                            >https://doi.org/10.1016/j.rmed.2012.09.004</a
+                                        >
                                     </p>
                                 </div>
                             </div>
@@ -331,16 +815,40 @@
                 <div class="row justify-content-between mt-5">
                     <div class="col-4 px-0">
                         <div class="col d-flex px-0">
-                            <button onclick="goBack()" class="bg-dark-blue text-white translate me-2 hide-print" data-translate="back">Back</button>
-                            <button onclick="newForm()" class="bg-dark-blue text-white translate hide-print" data-translate="new patient">New patient</button>
+                            <button
+                                onclick="goBack()"
+                                class="bg-dark-blue text-white translate me-2 hide-print"
+                                data-translate="back"
+                            >
+                                Back
+                            </button>
+                            <button
+                                onclick="newForm()"
+                                class="bg-dark-blue text-white translate hide-print"
+                                data-translate="new patient"
+                            >
+                                New patient
+                            </button>
                         </div>
                     </div>
                     <div class="col px-0">
-                        <button onclick="copyValues()" class="bg-dark-blue text-white float-end translate hide-print" data-translate="copy">Copy values</button>
-                        <button onclick="printPage()" class="bg-dark-blue text-white float-end translate me-2 hide-print" data-translate="print">Print</button>
+                        <button
+                            onclick="copyValues()"
+                            class="bg-dark-blue text-white float-end translate hide-print"
+                            data-translate="copy"
+                        >
+                            Copy values
+                        </button>
+                        <button
+                            onclick="printPage()"
+                            class="bg-dark-blue text-white float-end translate me-2 hide-print"
+                            data-translate="print"
+                        >
+                            Print
+                        </button>
                     </div>
                 </div>
             </div>
-		</div>
-	</body>
+        </div>
+    </body>
 </html>
