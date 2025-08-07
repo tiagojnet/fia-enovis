@@ -1,0 +1,58 @@
+.hide-print {
+    display: none;
+}
+#feno {
+    display: inline !important;
+    margin-right: 0.5rem !important;
+}
+
+h6.text-white {
+    color: black !important;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-left: 0rem !important;
+}
+
+.bg-dark-blue {
+    background-color: white;
+}
+
+.collapse:not(.show) {
+    display: block !important;
+}
+
+.units, a, .label, #main-msg, #floatingPerc {
+    color: black !important;
+}
+
+.row.no-print-margin, .d-flex.no-print-margin {
+    margin-top: 0rem !important;
+    margin-left: 0rem !important;
+    padding-left: 0rem !important;
+} 
+
+#no-left-margin-print {
+    margin-left: 0rem !important;
+}
+
+p {
+    margin-bottom: 0.5rem !important;
+}
+
+a.header {
+    padding-left: 0rem;
+}
+
+#collapseResults > .row > div {
+    width: 45% !important;
+}
+
+#results-div {
+    margin-top: 2rem !important;
+}
+
+@media print {
+    .pagebreak {
+        page-break-before: always;
+    }
+}

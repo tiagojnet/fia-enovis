@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+	<head>
+		<title>FeNO Interpretation Aid</title>
+		<meta charset="utf-8"/>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="styles.css">
+        <script src="translation/eng.js"></script>
+        <script src="translation/swe.js"></script>
+        <script src="resources/lookupjson.js"></script>
+        <script src="common.js"></script>
+        <script src="submit.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	</head>
+	<body class="w-md-body mx-auto" style="display: none; ">
+		<div class="m-md-5 my-5 m-4">
+            <div class="d-sm-flex text-sm-left text-center ">
+			    <button onclick="gotoPage('index.html')" class="title"><h1 class="d-sm-inline d-block pe-sm-2">F<span>e</span>NO</h1><h1 class="d-inline translate" data-translate="title">Interpretation Aid</h1></button>
+                <button onclick="gotoPage('about.html')" class="bg-dark-blue text-white form-btn mt-3 mt-sm-auto translate" data-translate="about">About</button>
+                <div class="mt-3 my-sm-auto d-block">
+                    <select id="language" class="w-100" onchange="changeDropdown(this)">
+                        <option value="eng">English</option>
+                        <option value="swe">Swedish</option>
+                    </select>
+                </div>
+            </div>
+            <div id="input">
+                <div class="row bg-dark-blue mt-4">
+                    <h6 class="text-white my-2 translate" data-translate="form title">Patient data</h6>
+                </div>
+                <div class="mt-4 d-flex">
+                    <div class="w-md-90 mx-auto">
+                        <div class="row my-3">
+                            <div class="col col-md-2 col-xl-2 d-flex">
+                                <p class="label ml-auto translate" data-translate="age">Age:</p>
+                            </div>
+                            <div class="col-12 col-md">
+                                <input class="input" type="number" id="age" name="age" value=""><p class="units translate" data-translate="age units"> years old</p>
+                                <div class="error translate" data-translate="age error" id="ageError"> </div>
+                            </div>
+                        </div>
+                        <div class="row my-3">
+                            <div class="col col-md-2 col-xl-2 d-flex">
+                                <p class="label ml-auto translate" data-translate="height">Height:</p>
+                            </div>
+                            <div class="col-12 col-md">
+                                <input class="input" type="number" id="height" name="height" value=""><p class="units"> cm</p>
+                                <div class="error translate" data-translate="height error" id="heightError"> </div>
+                            </div>
+                        </div>
+                        <div class="row my-3">
+                            <div class="col col-md-2 col-xl-2 d-flex">
+                                <p class="label ml-auto translate" data-translate="sex">Sex:</p>
+                            </div>
+                            <div class="col-12 col-md">
+                                <div class="form-check input">
+                                    <input class="form-check-input" type="radio" name="patientsex" id="Male" value="Male" checked>
+                                    <label class="form-check-label translate" data-translate="male" for="Male">
+                                        Male
+                                    </label>
+                                </div>
+                                <div class="form-check input">
+                                    <input class="form-check-input" type="radio" name="patientsex" id="Female" value="Female">
+                                    <label class="form-check-label translate" data-translate="female" for="Female">
+                                        Female
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row my-3">
+                            <div class="col col-md-2 col-xl-2 d-flex">
+                                <p class="label ml-auto">FeNO:</p>
+                            </div>
+                            <div class="col-12 col-md">
+                                <input class="input" type="text" id="feno" name="fname" value=""><p class="units"> ppb</p>
+                                <div class="error translate" data-translate="feno error" id="fenoError"> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-between mt-5">
+                    <div class="col-2 ps-0">
+                        <button onclick="clearForm()" class="bg-dark-blue text-white translate" data-translate="clear">Clear</button>
+                    </div>
+
+                    <div class="col px-0">
+                        <button onclick="submit()" class="bg-dark-blue text-white float-end translate hide-print" data-translate="interpretation">Interpretation</button>
+                        <button onclick="gotoPage('info.html')" class="bg-dark-blue text-white float-end me-2 translate hide-print" data-translate="info btn">Info</button>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</body>
+</html>
