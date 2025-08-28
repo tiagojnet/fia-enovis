@@ -1,40 +1,60 @@
 /*
-  Global Styles
-  - Keep our overrides minimal and layered on top of Bootswatch (Litera)
-  - Use system default sans-serif fonts for a native feel across platforms
+  Theme: Modern Minimal
+  - System sans-serif fonts
+  - Neutral surfaces, soft shadows
+  - Accessible blue primary with subtle tints for section headers
+  - Focus rings and compact buttons
 */
+
+/* 1) Base and Tokens */
+:root {
+  --surface: #ffffff;           /* card/background surfaces */
+  --bg: #f7f9fb;               /* app background */
+  --text: #111827;             /* main text */
+  --muted: #475569;            /* secondary text */
+  --border: #e5e7eb;           /* subtle borders */
+  --primary: #2563eb;          /* accessible blue */
+  --primary-600: #1e40af;      /* hover/active */
+  --radius: 12px;              /* default radius */
+  --shadow-sm: 0 1px 2px rgba(2, 6, 23, 0.05);
+  --shadow-md: 0 6px 18px rgba(2, 6, 23, 0.08);
+  --ring: 0 0 0 4px rgba(37, 99, 235, 0.18);
+}
 
 /* Use system sans-serif fonts site‑wide */
 html, body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
 }
 
-/* Brand header/background color helper (used for collapsible headers) */
-.bg-dark-blue { background-color: var(--bs-primary); }
+/* 2) Legacy helpers */
+/* Brand helper (legacy class used as a primary background) */
+.bg-dark-blue { background-color: var(--primary); color: #fff; }
 
 /* Form input width helper to keep compact controls */
 .input { width: 12.5em !important; }
 
 /* Form labels: subtle neutral and semi-bold for readability */
-.label { color: #495057; font-weight: 600; }
+.label { color: var(--muted); font-weight: 600; }
 
 span { font-size: 0.9em; }
 
 /* Inline units and secondary text near inputs */
-.units { display: inline-block; text-align: justify; padding-left: 0.5em; color: #495057; margin-bottom: 0 !important; }
+.units { display: inline-block; text-align: justify; padding-left: 0.5em; color: var(--muted); margin-bottom: 0 !important; }
 
 /* Utility color for text accents */
-.blue { color: #495057; }
+.blue { color: var(--muted); }
 
 /* De-emphasized, decoration-free links inside explanatory text */
-.no-link { color: #495057; text-decoration: none; }
+.no-link { color: var(--muted); text-decoration: none; }
 
 .custom-pl { padding-left: 0.5em; }
 
 .justify { text-align: justify; }
 
 /* Generic text color used in gradient block overlay */
-.text-color { color: #495057; }
+.text-color { color: var(--muted); }
 
 /* Reset default button borders; Bootstrap provides visual style */
 button { border-width: 0; }
@@ -48,90 +68,65 @@ button { border-width: 0; }
 /* Pointer feedback for clickable buttons */
 button:hover { cursor: pointer; }
 
-/* Buttons now use Bootstrap classes (btn, btn-primary, etc.) */
-
-/* Cap the results block height to tighten layout above-the-fold */
-#collapseResults > div > div { max-height: 200px; }
-
-/* Gradient scale image (results visual) */
-#gradient > img { height: 50px; width: 100%; margin: 3em auto 0; }
-
-/* Vertical marker on the gradient scale */
-#line { border-right: 2px solid #405076; transform: translateY(-60px); height: 70px; }
-
-/* Container for floating percentage bubble and main message */
-#number { position: relative; bottom: 165px; float: right; }
-
-/* Center the main interpretation message over the gradient */
-#number .text { top: 100px; position: relative; text-align: center; }
-
-/* Legacy output container retained for layout compatibility */
-#textOutput { height: 70px; position: relative; top: 105px; float: right; }
+/* 3) Forms and Controls */
+.form-control, .form-select {
+  background-color: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: none;
+}
+.form-control:focus, .form-select:focus {
+  border-color: var(--primary);
+  box-shadow: var(--ring);
+}
 
 /* Validation error messages — hidden by default, shown by JS when invalid */
 .error { color: #c62828; font-size: 0.85rem; padding-top: 0.25rem; display: none; }
 
-/* BREAKPOINTS */
-/* Small screens */
-@media (min-width: 576px) {
-    div.text-sm-left {
-        text-align: left !important;
-    }
-}
+/* 4) Buttons */
+.btn { border-radius: var(--radius); padding: .4rem .7rem; font-weight: 600; }
+.btn-primary { background: var(--primary); border-color: var(--primary); }
+.btn-primary:hover { background: var(--primary-600); border-color: var(--primary-600); }
+.btn-outline-primary { color: var(--primary); border-color: var(--primary); }
+.btn-outline-primary:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+.btn-secondary { background: #64748b; border-color: #64748b; }
+.btn-outline-secondary { color: #64748b; border-color: #64748b; }
+.btn-outline-secondary:hover { background: #64748b; color: #fff; border-color: #64748b; }
 
-/* Medium screens */
-@media (min-width: 767.98px) {
-    /* Auto left margin utility */
-    .ml-auto { margin-left: auto; }
+/* 5) Cards and Sections */
+.card { border: 0 !important; background: var(--surface); box-shadow: var(--shadow-sm); border-radius: var(--radius); }
+.card .card-body { padding-top: 1rem; }
+.card-header { border-bottom: 0 !important; background-color: rgba(37, 99, 235, 0.08) !important; color: var(--text) !important; }
 
-    /* Container width for form content on md+ screens */
-    .w-md-90 { width: 90% !important; }
+/* 6) Results visual */
+#collapseResults > div > div { max-height: 200px; }
+#gradient > img { height: 50px; width: 100%; margin: 3em auto 0; }
+#line { border-right: 2px solid #405076; transform: translateY(-60px); height: 70px; }
+#number { position: relative; bottom: 165px; float: right; }
+#number .text { top: 100px; position: relative; text-align: center; }
+#textOutput { height: 70px; position: relative; top: 105px; float: right; }
+#floatingPerc { width: max-content; }
+.faq2-img { width: 37em; padding-left: 2em; }
 
-    /* Make overall page container wider per request (was 80%) */
-    .w-md-body { width: 90% !important; }
-}
-
-/* X Larges screens */
-@media (min-width: 1200px) { 
-    /* Make overall page container wider on xl+ (was 50%) */
-    .w-md-body { width: 70% !important; }
- }
-
-/* Page title button wrapper */
+/* 7) Header & Title */
 .title { border: 0; padding: 0; background-color: transparent; }
-/* Reduce the visual prominence of the page title */
-.title h1 { font-size: 1.75rem; font-weight: 700; margin: 0; }
+.title h1 { font-size: 1.5rem; font-weight: 700; margin: 0; }
+.title h1 span { color: var(--primary); }
+.form-btn { height: fit-content; margin-bottom: auto; margin-left: auto; margin-right: 1em; width: 100%; }
+@media (min-width: 576px) { .form-btn { width: auto; } }
 
-/* FAQ figure sizing */
- .faq2-img { width: 37em; padding-left: 2em; }
-
-/* Semantic bold utility */
- .bold { font-weight: 700; }
-
-/* Ensure % bubble width fits content only */
- #floatingPerc { width: max-content; }
-
-/* Top-right action button block container on headers */
- .form-btn { height: fit-content; margin-bottom: auto; margin-left: auto; margin-right: 1em; width: 100%; }
-
- @media (min-width: 576px) {
-    /* On sm+ screens, let header actions auto-size */
-    .form-btn { width: auto; }
-}
-
-/* Collapse chevron rotation animation */
+/* 8) Collapse chevron rotation animation */
 .header .icon { transition: .3s transform ease-in-out; }
 .header .icon { transform: rotate(90deg); }
 .header.collapsed .icon { transform: rotate(0deg); }
 
-/*
-  Components & Utilities
-  - Keep structure in HTML with Bootstrap utility classes; only fine-tune here
-*/
+/* 9) Layout widths */
+@media (min-width: 767.98px) {
+  .ml-auto { margin-left: auto; }
+  .w-md-90 { width: 92% !important; }
+  .w-md-body { width: 95% !important; }
+}
+@media (min-width: 1200px) {
+  .w-md-body { width: 80% !important; }
+}
 
-/* Remove card borders for a cleaner, lighter look */
-.card { border: 0 !important; }
-.card-header { border-bottom: 0 !important; }
-
-/* Make buttons a bit less prominent by default (also using btn-sm in HTML) */
-.btn { padding: .35rem .6rem; }
