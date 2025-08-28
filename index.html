@@ -5,19 +5,15 @@
         <meta charset="utf-8" />
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="styles.css" />
+        
         <script src="translation/eng.js"></script>
         <script src="translation/swe.js"></script>
         <script src="translation/pt.js"></script>
         <script src="resources/lookupjson.js"></script>
         <script src="common.js"></script>
         <script src="submit.js"></script>
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-            crossorigin="anonymous"
-        />
+        <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/litera/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="styles.css" />
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
@@ -37,7 +33,7 @@
                 </button>
                 <button
                     onclick="gotoPage('about.html')"
-                    class="bg-dark-blue text-white form-btn mt-3 mt-sm-auto translate"
+                    class="btn btn-primary btn-sm form-btn mt-3 mt-sm-auto translate"
                     data-translate="about"
                 >
                     About
@@ -45,7 +41,7 @@
                 <div class="mt-3 my-sm-auto d-block">
                     <select
                         id="language"
-                        class="w-100"
+                        class="form-select"
                         onchange="changeDropdown(this)"
                     >
                         <option value="pt">Português</option>    
@@ -55,7 +51,8 @@
                     </select>
                 </div>
             </div>
-            <div id="input">
+            <div class="card shadow-sm mt-4">
+                <div class="card-body" id="input">
                 <div class="row bg-dark-blue mt-4">
                     <h6
                         class="text-white my-2 translate"
@@ -77,7 +74,7 @@
                             </div>
                             <div class="col-12 col-md">
                                 <input
-                                    class="input"
+                                    class="form-control input"
                                     type="number"
                                     id="age"
                                     name="age"
@@ -107,7 +104,7 @@
                             </div>
                             <div class="col-12 col-md">
                                 <input
-                                    class="input"
+                                    class="form-control input"
                                     type="number"
                                     id="height"
                                     name="height"
@@ -172,7 +169,7 @@
                             </div>
                             <div class="col-12 col-md">
                                 <input
-                                    class="input"
+                                    class="form-control input"
                                     type="text"
                                     id="feno"
                                     name="fname"
@@ -192,7 +189,7 @@
                     <div class="col-2 ps-0">
                         <button
                             onclick="clearForm()"
-                            class="bg-dark-blue text-white translate"
+                            class="btn btn-secondary btn-sm translate"
                             data-translate="clear"
                         >
                             Clear
@@ -202,20 +199,21 @@
                     <div class="col px-0">
                         <button
                             onclick="submit()"
-                            class="bg-dark-blue text-white float-end translate hide-print"
+                            class="btn btn-primary btn-sm float-end translate hide-print"
                             data-translate="interpretation"
                         >
                             Interpretation
                         </button>
                         <button
                             onclick="gotoPage('info.html')"
-                            class="bg-dark-blue text-white float-end me-2 translate hide-print"
+                            class="btn btn-outline-primary btn-sm float-end me-2 translate hide-print"
                             data-translate="info btn"
                         >
                             Info
                         </button>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </body>

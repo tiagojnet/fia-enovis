@@ -141,6 +141,21 @@ function setFenoValues() {
 
   const color = getColor(percFeno);
   document.getElementsByClassName("answer-" + color)[0].style.display = "block";
+
+  // Populate print-only compact summary if present
+  if (document.getElementById('printAgeValue')) {
+    document.getElementById('printAgeValue').innerHTML = globalAge + (langData["age units"] || "");
+  }
+  if (document.getElementById('printHeightValue')) {
+    document.getElementById('printHeightValue').innerHTML = height + " cm";
+  }
+  if (document.getElementById('printSexValue')) {
+    const sexMap = (langData["patientsex"]) || {};
+    document.getElementById('printSexValue').innerHTML = sexMap[patientsex] || patientsex;
+  }
+  if (document.getElementById('printFenoValue')) {
+    document.getElementById('printFenoValue').innerHTML = feno + " ppb";
+  }
 }
 
 function afterLoading() {
@@ -156,3 +171,11 @@ function printPage() {
 }
 
 window.onload = afterLoading;
+
+// Ensure date is set when printing via browser
+window.onbeforeprint = function () {
+  var printDateEl = document.getElementById('printDate');
+  if (printDateEl) {
+    printDateEl.innerHTML = new Date(Date.now()).toLocaleString();
+  }
+};

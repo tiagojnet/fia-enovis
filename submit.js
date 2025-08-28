@@ -21,21 +21,28 @@ function checkErrors(height, age, feno) {
     document.getElementById("fenoError").innerHTML = "";
     document.getElementById("heightError").innerHTML = "";
     document.getElementById("ageError").innerHTML = "";
+    // Hide all error messages by default
+    document.getElementById("fenoError").style.display = 'none';
+    document.getElementById("heightError").style.display = 'none';
+    document.getElementById("ageError").style.display = 'none';
 
     var hasError = false;
 
     if (feno.replace(/\s/g,'') != "<5" && (feno < 5 || feno > 300 || isNaN(parseFloat(feno)))) {
         document.getElementById("fenoError").innerHTML = langData['feno error'];
+        document.getElementById("fenoError").style.display = 'block';
         hasError = true;
     }
 
     if (height < 80 || height > 250 || isNaN(parseInt(height))) {
         document.getElementById("heightError").innerHTML = langData['height error'];
+        document.getElementById("heightError").style.display = 'block';
         hasError = true;
     }
 
     if (age < 5 || age > 99 || isNaN(parseInt(age)) ) {
         document.getElementById("ageError").innerHTML = langData['age error'];
+        document.getElementById("ageError").style.display = 'block';
         hasError = true;
     }
 

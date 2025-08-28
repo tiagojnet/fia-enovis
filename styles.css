@@ -1,112 +1,75 @@
-.bg-dark-blue {
-    background-color: rgb(48, 63, 141);
+/*
+  Global Styles
+  - Keep our overrides minimal and layered on top of Bootswatch (Litera)
+  - Use system default sans-serif fonts for a native feel across platforms
+*/
+
+/* Use system sans-serif fonts site‑wide */
+html, body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
-.input {
-    width: 11em !important;
-    height: 1.5em;
-}
+/* Brand header/background color helper (used for collapsible headers) */
+.bg-dark-blue { background-color: var(--bs-primary); }
 
-.label {
-    /* text-align: right;
-    width: 100%; */
-    color: rgb(64, 76, 118);
-}
+/* Form input width helper to keep compact controls */
+.input { width: 12.5em !important; }
 
-span {
-    font-size: 0.8em;
-}
+/* Form labels: subtle neutral and semi-bold for readability */
+.label { color: #495057; font-weight: 600; }
 
-.units {
-    display: inline-block;
-    text-align: justify;
-    padding-left: 0.5em;
-    color: rgb(64, 76, 118);
-    margin-bottom: 0em !important;
-}
+span { font-size: 0.9em; }
 
-.blue {
-    color: rgb(64, 76, 118);
-}
+/* Inline units and secondary text near inputs */
+.units { display: inline-block; text-align: justify; padding-left: 0.5em; color: #495057; margin-bottom: 0 !important; }
 
-.no-link {
-    color: rgb(64, 76, 118);
-    text-decoration: none;
-}
+/* Utility color for text accents */
+.blue { color: #495057; }
 
-.custom-pl {
-    padding-left: 0.5em;
-}
+/* De-emphasized, decoration-free links inside explanatory text */
+.no-link { color: #495057; text-decoration: none; }
 
-.justify {
-    text-align: justify;
-}
+.custom-pl { padding-left: 0.5em; }
 
-.text-color {
-    color: rgb(64, 76, 118);
-}
+.justify { text-align: justify; }
 
-button {
-    border-width: 0px;
-}
+/* Generic text color used in gradient block overlay */
+.text-color { color: #495057; }
 
-.pl-0 {
-    padding-left: 0px !important;
-}
+/* Reset default button borders; Bootstrap provides visual style */
+button { border-width: 0; }
 
-.row {
-    margin-right: 0px  !important;
-    margin-left: 0px  !important;
-}
+/* Small spacing helpers */
+.pl-0 { padding-left: 0 !important; }
 
-button:hover {
-    cursor: pointer;
-}
+/* Remove side gutters on custom rows where needed */
+.row { margin-right: 0 !important; margin-left: 0 !important; }
 
-#collapseResults > div > div {
-    max-height: 200px;
-}
+/* Pointer feedback for clickable buttons */
+button:hover { cursor: pointer; }
 
-#gradient > img {
-    height: 50px;
-    width: 100%;
-    margin: auto;
-    margin-top: 3em;
-    /* background: linear-gradient(90deg, rgba(0,254,0,1) 0%, rgba(0,254,0,1) 37%, rgba(250,250,64,1) 42%, rgba(250,250,64,1) 43%, rgba(238,125,49,1) 50%, rgba(238,125,49,1) 54%, rgba(255,0,0,1) 61%, rgba(255,0,0,1) 66%, rgba(255,0,0,1) 70%, rgb(111, 1, 1) 100%); */
-}
+/* Buttons now use Bootstrap classes (btn, btn-primary, etc.) */
 
-#line {
-    border-right: 2px solid rgb(64, 76, 118);
-    transform: translateY(-60px);
-    height: 70px;
-}
+/* Cap the results block height to tighten layout above-the-fold */
+#collapseResults > div > div { max-height: 200px; }
 
-#number {
-    /* height: 70px; */
-    position: relative;
-    bottom: 165px;
-    float: right;
-    /* right: 13px; */
-}
+/* Gradient scale image (results visual) */
+#gradient > img { height: 50px; width: 100%; margin: 3em auto 0; }
 
-#number .text {
-    top: 100px;
-    position: relative;
-    text-align: center;
-}
+/* Vertical marker on the gradient scale */
+#line { border-right: 2px solid #405076; transform: translateY(-60px); height: 70px; }
 
-#textOutput {
-    height: 70px;
-    position: relative;
-    top: 105px;
-    float: right;
-}
+/* Container for floating percentage bubble and main message */
+#number { position: relative; bottom: 165px; float: right; }
 
-.error {
-    color: red;
-    font-size: 0.8rem;
-    padding-top: 0.2rem;
-}
+/* Center the main interpretation message over the gradient */
+#number .text { top: 100px; position: relative; text-align: center; }
+
+/* Legacy output container retained for layout compatibility */
+#textOutput { height: 70px; position: relative; top: 105px; float: right; }
+
+/* Validation error messages — hidden by default, shown by JS when invalid */
+.error { color: #c62828; font-size: 0.85rem; padding-top: 0.25rem; display: none; }
 
 /* BREAKPOINTS */
 /* Small screens */
@@ -118,67 +81,57 @@ button:hover {
 
 /* Medium screens */
 @media (min-width: 767.98px) {
-    .ml-auto {
-        margin-left: auto;
-    }
+    /* Auto left margin utility */
+    .ml-auto { margin-left: auto; }
 
-    .w-md-90 {
-        width: 90% !important;
-    }
+    /* Container width for form content on md+ screens */
+    .w-md-90 { width: 90% !important; }
 
-    .w-md-body {
-        width: 80% !important;
-    }
+    /* Make overall page container wider per request (was 80%) */
+    .w-md-body { width: 90% !important; }
 }
 
 /* X Larges screens */
 @media (min-width: 1200px) { 
-    .w-md-body {
-        width: 50% !important;
-    }
+    /* Make overall page container wider on xl+ (was 50%) */
+    .w-md-body { width: 70% !important; }
  }
 
- .title {
-    border: 0px;
-    padding: 0px;
-    background-color: white;
- }
+/* Page title button wrapper */
+.title { border: 0; padding: 0; background-color: transparent; }
+/* Reduce the visual prominence of the page title */
+.title h1 { font-size: 1.75rem; font-weight: 700; margin: 0; }
 
- .faq2-img {
-    width: 37em;
-    padding-left: 2em;
- }
+/* FAQ figure sizing */
+ .faq2-img { width: 37em; padding-left: 2em; }
 
- .bold {
-    font-weight: 700;
- }
+/* Semantic bold utility */
+ .bold { font-weight: 700; }
 
- #floatingPerc {
-    width: max-content;
- }
+/* Ensure % bubble width fits content only */
+ #floatingPerc { width: max-content; }
 
- .form-btn {
-    height: fit-content;
-    margin-bottom: auto;
-    margin-left: auto;
-    margin-right: 1em;
-    width: 100%;
- }
+/* Top-right action button block container on headers */
+ .form-btn { height: fit-content; margin-bottom: auto; margin-left: auto; margin-right: 1em; width: 100%; }
 
  @media (min-width: 576px) {
-    .form-btn {
-        width: auto;
-    }
+    /* On sm+ screens, let header actions auto-size */
+    .form-btn { width: auto; }
 }
 
-/* Animation */
+/* Collapse chevron rotation animation */
+.header .icon { transition: .3s transform ease-in-out; }
+.header .icon { transform: rotate(90deg); }
+.header.collapsed .icon { transform: rotate(0deg); }
 
-.header .icon {
-    transition: .3s transform ease-in-out;
-}
-.header .icon {
-    transform: rotate(90deg);
-}
-.header.collapsed .icon {
-    transform: rotate(0deg);
-}
+/*
+  Components & Utilities
+  - Keep structure in HTML with Bootstrap utility classes; only fine-tune here
+*/
+
+/* Remove card borders for a cleaner, lighter look */
+.card { border: 0 !important; }
+.card-header { border-bottom: 0 !important; }
+
+/* Make buttons a bit less prominent by default (also using btn-sm in HTML) */
+.btn { padding: .35rem .6rem; }

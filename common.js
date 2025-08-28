@@ -70,6 +70,10 @@ function translateItems() {
 
   for (let element of translatingElements) {
     const key = element.getAttribute("data-translate");
+    // Do not auto-translate validation error containers; they are controlled by validation
+    if (element.classList && element.classList.contains('error')) {
+      continue;
+    }
     if (key && typeof langData[key] !== 'undefined') {
       element.innerHTML = langData[key];
     }
