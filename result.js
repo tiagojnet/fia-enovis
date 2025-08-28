@@ -1,26 +1,7 @@
-const mapLang = {
-  eng: engData,
-  swe: sweData,
-  pt: ptData,
-};
-
-var langData = engData;
 var feno, percFeno, globalAge, patientsex;
-
-function gotoPage(pageName) {
-  var splitUrl = window.location.href.split("/");
-
-  splitUrl[splitUrl.length - 1] = pageName;
-
-  window.location.href = splitUrl.join("/");
-}
 
 function goBack() {
   gotoPage("index.html" + window.location.search);
-}
-
-function newForm() {
-  gotoPage("index.html");
 }
 
 function copyValues() {
@@ -58,12 +39,6 @@ function copyValues() {
     "\n";
 
   navigator.clipboard.writeText(text);
-}
-
-function changeDropdown(control) {
-  langData = mapLang[control.value];
-  localStorage.setItem("lang", control.value);
-  translateItems();
 }
 
 function getPredictedFeno(sex, age, height) {
@@ -169,56 +144,7 @@ function setFenoValues() {
 }
 
 function afterLoading() {
-  var language = localStorage.getItem("lang");
-
-  if (language) {
-    langData = mapLang[language];
-    document.querySelector("select").value = language;
-  }
-
-  setFenoValues();
-  translateItems();
-  document.querySelector("body").style.display = "block";
-}
-
-function translateItems() {
-  const translatingElements = document.getElementsByClassName("translate");
-
-  for (let element of translatingElements) {
-    let key = element.getAttribute("data-translate");
-
-    if (element.innerHTML.length > 1) {
-      element.innerHTML = langData[key];
-    }
-  }
-
-  if (document.getElementById("main-msg")) {
-    const valueAdj = percFeno > 122 ? langData["elevated"] : langData["normal"];
-    document.getElementById("main-msg").innerHTML =
-      langData["mainMsg1"] +
-      feno +
-      " ppb (" +
-      Math.round(percFeno) +
-      "%) " +
-      langData["mainMsg2"] +
-      " " +
-      valueAdj +
-      langData["mainMsg3"];
-  }
-
-  if (document.getElementById("outputAge")) {
-    document.getElementById("outputAge").innerHTML =
-      globalAge + langData["age units"];
-  }
-
-  if (document.getElementById("outputSex")) {
-    document.getElementById("outputSex").innerHTML =
-      langData["patientsex"][patientsex];
-  }
-
-  if (document.getElementById("faq2-img")) {
-    document.getElementById("faq2-img").src = langData["image"];
-  }
+  initPage({ select: 'select', withFenoValues: true });
 }
 
 function printPage() {

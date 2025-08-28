@@ -75,16 +75,7 @@ function setUrlParams() {
 }
 
 function afterLoading() {
-    var language = localStorage.getItem('lang');
-
-    if (language) {
-        langData = mapLang[language];
-        document.querySelector('select').value = language;
-    }
-
-    setUrlParams();
-    translateItems();
-    document.querySelector('body').style.display = 'block';
+    initPage({ select: 'select', withUrlParams: true });
 }
 
 window.onload = afterLoading;
